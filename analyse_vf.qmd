@@ -4,7 +4,6 @@ format: html
 editor: visual
 ---
 
-
 Introduction : Présentation du modèle conceptuel
 
 Les résultats présentés ci-après sont tirés des travaux de la thèse de doctorat de Yoann Ducoux. L'objectif de l'étude quantitative menée est d'améliorer la compréhension de la structure cognitive qui permet aux candidats de passer de l'observation d'informations à propos d'un employeur à un sentiment favorable envers cet employeur. Par extension, cette étude aide les entreprises à favoriser les chances de réussite du processus de recrutement.
@@ -207,29 +206,21 @@ Sur la base de notre cadre conceptuel, nous formulons les hypothèses suivantes 
 
 **H5**: La source de l'enquête (Source) influence la crédibilité perçue de l'enquête (CredE).
 
-**H6**: La congruence des signaux (Cong) influence positivement la crédibilité des signaux.
-  - H6a: La congruence des signaux (Cong) influence positivement crédibilité de l'enquête (CredE).
-  - H6b: La congruence des signaux (Cong) influence positivement crédibilité de la note Glassdoor (CredGD).
+**H6**: La congruence des signaux (Cong) influence positivement la crédibilité des signaux. - H6a: La congruence des signaux (Cong) influence positivement crédibilité de l'enquête (CredE). - H6b: La congruence des signaux (Cong) influence positivement crédibilité de la note Glassdoor (CredGD).
 
 **H7**: La crédibilité de la marque employeur (CredME) influence positivement l'image employeur (Image).
 
-**H8**: La crédibilité des signaux influence la crédibilité de la marque employeur(CredME).
-  - H8a: La crédibilité de la note Glassdoor (CredGD) influence positivement crédibilité de la marque employeur (CredME).
-  - H8b: La crédibilité de l'enquête (CredE) influence positvement crédibilité de la marque employeur (CredME).
+**H8**: La crédibilité des signaux influence la crédibilité de la marque employeur(CredME). - H8a: La crédibilité de la note Glassdoor (CredGD) influence positivement crédibilité de la marque employeur (CredME). - H8b: La crédibilité de l'enquête (CredE) influence positvement crédibilité de la marque employeur (CredME).
 
 ### Médiations
 
-**H9**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur.
-  - H9a: La séquence de médiateurs congruence des signaux, crédibilité de la note Glassdoor, crédibilité de la marque employeur médiatise la relation entre la source de l'enquête et l'image employeur.
-  - H9b: La séquence de médiateurs congruence des signaux, crédibilité de l'enquête, crédibilité de la marque employeur médiatise la relation entre la source de l'enquête et l'image employeur.
+**H9**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur. - H9a: La séquence de médiateurs congruence des signaux, crédibilité de la note Glassdoor, crédibilité de la marque employeur médiatise la relation entre la source de l'enquête et l'image employeur. - H9b: La séquence de médiateurs congruence des signaux, crédibilité de l'enquête, crédibilité de la marque employeur médiatise la relation entre la source de l'enquête et l'image employeur.
 
 **H10**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la crédibilité de l'enquête et la crédibilité de la marque employeur.
 
 **H11**: Les effets de la note Glassdoor sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la crédibilité de la note Glassdoor et la crédibilité de la marque employeur.
 
-**H12**: Les effets de la note sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur.
-  - H12a: La séquence de médiateurs congruence des signaux, crédibilité de la note Glassdoor, crédibilité de la marque employeur médiatise la relation entre la note Glassdoor et l'image employeur.
-  - H12b: La séquence de médiateurs congruence des signaux, crédibilité de l'enquête, crédibilité de la marque employeur médiatise la relation entre la note Glassdoor et l'image employeur.
+**H12**: Les effets de la note sur l'image employeur sont médiatisés par une chaîne de médiation (médiation séquentielle) impliquant dans l'ordre la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur. - H12a: La séquence de médiateurs congruence des signaux, crédibilité de la note Glassdoor, crédibilité de la marque employeur médiatise la relation entre la note Glassdoor et l'image employeur. - H12b: La séquence de médiateurs congruence des signaux, crédibilité de l'enquête, crédibilité de la marque employeur médiatise la relation entre la note Glassdoor et l'image employeur.
 
 ```{r}
 #| label: setup_and_libraries
@@ -260,6 +251,7 @@ merged_df <- haven::zap_labels(merged_df)
 ```
 
 # 2. Nettoyage et préparation des données
+
 ```{r}
 #| label: data_cleaning
 #| results: "hide"
@@ -404,16 +396,16 @@ L'imputation multiple est une méthode statistique robuste pour traiter les donn
 
 Dans notre étude, nous utilisons deux méthodes d'imputation différentes :
 
-1. **Predictive Mean Matching (PMM)** : Cette méthode impute les valeurs manquantes en utilisant des valeurs observées provenant d'autres observations ayant des caractéristiques similaires. Elle préserve la distribution des données observées et est particulièrement adaptée aux variables continues.
+1.  **Predictive Mean Matching (PMM)** : Cette méthode impute les valeurs manquantes en utilisant des valeurs observées provenant d'autres observations ayant des caractéristiques similaires. Elle préserve la distribution des données observées et est particulièrement adaptée aux variables continues.
 
-2. **Random Forest (RF)** : Cette méthode utilise des algorithmes d'apprentissage automatique pour prédire les valeurs manquantes en fonction des relations complexes entre les variables. Elle est capable de capturer des relations non linéaires et des interactions.
+2.  **Random Forest (RF)** : Cette méthode utilise des algorithmes d'apprentissage automatique pour prédire les valeurs manquantes en fonction des relations complexes entre les variables. Elle est capable de capturer des relations non linéaires et des interactions.
 
 Pour combiner les résultats des analyses effectuées sur chaque jeu de données imputé, nous appliquons la **règle de Rubin** (1987), qui permet d'obtenir des estimations non biaisées des paramètres et de leurs erreurs standard. Cette règle stipule que :
 
-- L'estimation combinée d'un paramètre est la moyenne des estimations obtenues sur chaque jeu imputé.
-- La variance totale associée à cette estimation est la somme de deux composantes :
-  1. La variance intra-imputation (moyenne des variances estimées dans chaque jeu)
-  2. La variance inter-imputation (variance des estimations entre les jeux), multipliée par un facteur d'ajustement (1 + 1/m, où m est le nombre d'imputations)
+-   L'estimation combinée d'un paramètre est la moyenne des estimations obtenues sur chaque jeu imputé.
+-   La variance totale associée à cette estimation est la somme de deux composantes :
+    1.  La variance intra-imputation (moyenne des variances estimées dans chaque jeu)
+    2.  La variance inter-imputation (variance des estimations entre les jeux), multipliée par un facteur d'ajustement (1 + 1/m, où m est le nombre d'imputations)
 
 Cette approche nous permet d'obtenir des résultats plus fiables en tenant compte à la fois de l'incertitude liée à l'échantillonnage et de celle liée à l'imputation des données manquantes.
 
@@ -513,7 +505,7 @@ check_missing(subset_pmm[[1]], "premier jeu PMM")
 check_missing(subset_rf[[1]], "premier jeu RF")
 ```
 
-#Procédure de vérification 
+#Procédure de vérification
 
 ## Vérification des manipulations expérimentales
 
@@ -543,49 +535,43 @@ L'analyse des résultats des ANOVAs nous permet d'évaluer systématiquement l'e
 
 #### Manipulation de la note et source d'évaluation (Glassdoor)
 
-1. **Info_Glassdoor_1** - *"La note sur l'employeur ABCompany qui apparaît sur son site carrière émane de Glassdoor"*
-   - Non significatif : F(5,399) = 1.695, p = 0.135
-   - La reconnaissance de Glassdoor comme source est similaire dans tous les scénarios, suggérant une attribution claire de la source indépendamment des conditions expérimentales.
-
-2. **Info_Glassdoor_2** - *"Le résultat de cette évaluation est indépendant de l'entreprise ABCompany"*
-   - Non significatif : F(5,399) = 1.449, p = 0.206
-   - La perception d'indépendance de l'évaluation reste constante à travers les scénarios, confirmant l'uniformité de cette dimension dans notre dispositif expérimental.
-
-3. **Info_Glassdoor_3** - *"D'après les informations de Glassdoor, l'entreprise ABCompany est un bon employeur"*
-   - Très significatif : F(5,399) = 76.96, p < 0.001
-   - Cette différence hautement significative confirme que notre manipulation de la note (2.5, 3.5, 4.5) a été correctement perçue par les participants, validant le succès de cette manipulation cruciale.
-
-4. **Info_Glassdoor_4** - *"D'après les informations de Glassdoor, les employés de ABC recommandent de travailler pour cet employeur"*
-   - Très significatif : F(5,399) = 35.29, p < 0.001
-   - Cette différence significative renforce la confirmation de l'efficacité de notre manipulation des évaluations, montrant que les participants perçoivent des niveaux différents de recommandation selon les scénarios.
+1.  **Info_Glassdoor_1** - *"La note sur l'employeur ABCompany qui apparaît sur son site carrière émane de Glassdoor"*
+    -   Non significatif : F(5,399) = 1.695, p = 0.135
+    -   La reconnaissance de Glassdoor comme source est similaire dans tous les scénarios, suggérant une attribution claire de la source indépendamment des conditions expérimentales.
+2.  **Info_Glassdoor_2** - *"Le résultat de cette évaluation est indépendant de l'entreprise ABCompany"*
+    -   Non significatif : F(5,399) = 1.449, p = 0.206
+    -   La perception d'indépendance de l'évaluation reste constante à travers les scénarios, confirmant l'uniformité de cette dimension dans notre dispositif expérimental.
+3.  **Info_Glassdoor_3** - *"D'après les informations de Glassdoor, l'entreprise ABCompany est un bon employeur"*
+    -   Très significatif : F(5,399) = 76.96, p \< 0.001
+    -   Cette différence hautement significative confirme que notre manipulation de la note (2.5, 3.5, 4.5) a été correctement perçue par les participants, validant le succès de cette manipulation cruciale.
+4.  **Info_Glassdoor_4** - *"D'après les informations de Glassdoor, les employés de ABC recommandent de travailler pour cet employeur"*
+    -   Très significatif : F(5,399) = 35.29, p \< 0.001
+    -   Cette différence significative renforce la confirmation de l'efficacité de notre manipulation des évaluations, montrant que les participants perçoivent des niveaux différents de recommandation selon les scénarios.
 
 #### Perception du site carrière
 
-1. **Informations_site_1** - *"L'entreprise ABCompany est à l'origine de ce site internet"*
-   - Non significatif : F(5,399) = 0.947, p = 0.451
-   - La perception de l'entreprise comme source du site reste constante entre les scénarios, assurant une base homogène pour l'interprétation des autres variables.
-
-2. **Informations_site_2** - *"Le site que j'ai vu est le site carrière de l'entreprise ABCompany"*
-   - Non significatif : F(5,399) = 0.494, p = 0.781
-   - L'identification uniforme du site comme site carrière à travers les scénarios assure la cohérence de notre environnement expérimental.
-
-3. **Informations_site_3** - *"Ce site carrière fait apparaître un taux de recommandation de l'entreprise ABCompany comme employeur"*
-   - Non significatif : F(5,399) = 1.184, p = 0.316
-   - La visibilité perçue du taux de recommandation est constante entre les scénarios, confirmant la standardisation de cet élément dans notre design.
-
-4. **Informations_site_4** - *"Ce site carrière fait apparaître une note sur ABCompany comme employeur"*
-   - Non significatif : F(5,399) = 1.659, p = 0.144
-   - La perception de la présence d'une note est homogène à travers les différentes conditions, soutenant la cohérence de notre présentation expérimentale.
-
-5. **Informations_site_5** - *Check d'attention*
-   - Non significatif : F(5,399) = 1.364, p = 0.237
-   - Cette homogénéité est attendue pour un item de vérification d'attention, confirmant la fiabilité de notre filtre d'inclusion des participants.
+1.  **Informations_site_1** - *"L'entreprise ABCompany est à l'origine de ce site internet"*
+    -   Non significatif : F(5,399) = 0.947, p = 0.451
+    -   La perception de l'entreprise comme source du site reste constante entre les scénarios, assurant une base homogène pour l'interprétation des autres variables.
+2.  **Informations_site_2** - *"Le site que j'ai vu est le site carrière de l'entreprise ABCompany"*
+    -   Non significatif : F(5,399) = 0.494, p = 0.781
+    -   L'identification uniforme du site comme site carrière à travers les scénarios assure la cohérence de notre environnement expérimental.
+3.  **Informations_site_3** - *"Ce site carrière fait apparaître un taux de recommandation de l'entreprise ABCompany comme employeur"*
+    -   Non significatif : F(5,399) = 1.184, p = 0.316
+    -   La visibilité perçue du taux de recommandation est constante entre les scénarios, confirmant la standardisation de cet élément dans notre design.
+4.  **Informations_site_4** - *"Ce site carrière fait apparaître une note sur ABCompany comme employeur"*
+    -   Non significatif : F(5,399) = 1.659, p = 0.144
+    -   La perception de la présence d'une note est homogène à travers les différentes conditions, soutenant la cohérence de notre présentation expérimentale.
+5.  **Informations_site_5** - *Check d'attention*
+    -   Non significatif : F(5,399) = 1.364, p = 0.237
+    -   Cette homogénéité est attendue pour un item de vérification d'attention, confirmant la fiabilité de notre filtre d'inclusion des participants.
 
 Cette analyse systématique révèle que nos manipulations expérimentales ont fonctionné comme prévu. Spécifiquement, les différences significatives observées pour les items 3 et 4 de Glassdoor confirment que la manipulation de la note de l'employeur a été efficacement perçue, tandis que l'homogénéité des autres perceptions atteste de la standardisation appropriée des éléments non manipulés. Ces vérifications valident la robustesse de notre design expérimental et renforcent la fiabilité des analyses subséquentes.
 
 Ces vérifications confirment que nos manipulations expérimentales ont fonctionné comme prévu, ce qui nous permet de procéder avec confiance aux analyses psychométriques et structurelles suivantes.
 
 # 3. Analyses psychométriques
+
 ```{r}
 #| label: analyses_psychometriques
 
@@ -702,6 +688,7 @@ analyse_CredE <- analyse_psychometrique(subset_noDM, "CredE", items_CredE)
 ```
 
 # Analyses psychométriques sur données imputées
+
 ```{r}
 #| label: analyses_psychometriques_imputed
 
@@ -766,13 +753,7 @@ Cette section présente les analyses psychométriques des différentes échelles
 
 L'échelle de crédibilité perçue de Glassdoor comprend quatre items évalués sur une échelle de Likert à 7 points.
 
-**Propriétés psychométriques** :
-- Les scores moyens varient entre 3,77 et 4,25, indiquant une perception modérément positive
-- L'indice KMO (0,599) est acceptable mais modeste
-- La fiabilité interne (α = 0,563) est en dessous du seuil conventionnel de 0,70
-- L'analyse factorielle suggère une structure à trois facteurs, ce qui est problématique pour une échelle censée mesurer un construit unique
-- Les saturations factorielles sont hétérogènes (de 0,337 à 0,785)
-- La variance expliquée est limitée (30,46%)
+**Propriétés psychométriques** : - Les scores moyens varient entre 3,77 et 4,25, indiquant une perception modérément positive - L'indice KMO (0,599) est acceptable mais modeste - La fiabilité interne (α = 0,563) est en dessous du seuil conventionnel de 0,70 - L'analyse factorielle suggère une structure à trois facteurs, ce qui est problématique pour une échelle censée mesurer un construit unique - Les saturations factorielles sont hétérogènes (de 0,337 à 0,785) - La variance expliquée est limitée (30,46%)
 
 Cette échelle présente des faiblesses psychométriques qui invitent à interpréter les résultats la concernant avec prudence.
 
@@ -780,13 +761,7 @@ Cette échelle présente des faiblesses psychométriques qui invitent à interpr
 
 Cette échelle à trois items mesure la crédibilité perçue de la méthode d'évaluation utilisée par l'entreprise.
 
-**Propriétés psychométriques** :
-- Les moyennes des items sont homogènes (entre 3,89 et 4,03)
-- L'indice KMO (0,723) indique une bonne adéquation des données
-- Excellente fiabilité interne (α = 0,859)
-- Structure factorielle unidimensionnelle confirmée
-- Saturations factorielles élevées (0,752 à 0,891)
-- Variance expliquée satisfaisante (68,07%)
+**Propriétés psychométriques** : - Les moyennes des items sont homogènes (entre 3,89 et 4,03) - L'indice KMO (0,723) indique une bonne adéquation des données - Excellente fiabilité interne (α = 0,859) - Structure factorielle unidimensionnelle confirmée - Saturations factorielles élevées (0,752 à 0,891) - Variance expliquée satisfaisante (68,07%)
 
 Cette échelle présente d'excellentes qualités psychométriques, soutenant sa validité et sa fiabilité.
 
@@ -794,13 +769,7 @@ Cette échelle présente d'excellentes qualités psychométriques, soutenant sa 
 
 L'échelle de congruence mesure la cohérence perçue entre les différentes sources d'information.
 
-**Propriétés psychométriques** :
-- Les scores moyens sont homogènes (entre 3,85 et 4,08)
-- KMO satisfaisant (0,716)
-- Bonne fiabilité interne (α = 0,853)
-- Structure factorielle unidimensionnelle confirmée
-- Saturations factorielles élevées (0,730 à 0,891)
-- Variance expliquée satisfaisante (66,94%)
+**Propriétés psychométriques** : - Les scores moyens sont homogènes (entre 3,85 et 4,08) - KMO satisfaisant (0,716) - Bonne fiabilité interne (α = 0,853) - Structure factorielle unidimensionnelle confirmée - Saturations factorielles élevées (0,730 à 0,891) - Variance expliquée satisfaisante (66,94%)
 
 Les propriétés psychométriques de cette échelle sont très satisfaisantes.
 
@@ -808,13 +777,7 @@ Les propriétés psychométriques de cette échelle sont très satisfaisantes.
 
 Cette échelle à trois items évalue la perception globale de l'image de l'employeur.
 
-**Propriétés psychométriques** :
-- Scores moyens relativement élevés (entre 4,06 et 4,43)
-- Excellent KMO (0,762)
-- Fiabilité interne remarquable (α = 0,927)
-- Structure factorielle unidimensionnelle confirmée
-- Saturations factorielles très élevées (0,885 à 0,926)
-- Variance expliquée excellente (81,05%)
+**Propriétés psychométriques** : - Scores moyens relativement élevés (entre 4,06 et 4,43) - Excellent KMO (0,762) - Fiabilité interne remarquable (α = 0,927) - Structure factorielle unidimensionnelle confirmée - Saturations factorielles très élevées (0,885 à 0,926) - Variance expliquée excellente (81,05%)
 
 Cette échelle présente des qualités psychométriques exceptionnelles, ce qui en fait une mesure très fiable du concept d'image de l'employeur.
 
@@ -822,13 +785,7 @@ Cette échelle présente des qualités psychométriques exceptionnelles, ce qui 
 
 L'échelle de familiarité mesure la connaissance préalable que les participants avaient de l'entreprise.
 
-**Propriétés psychométriques** :
-- Scores moyens très bas (entre 1,27 et 1,33 sur 7)
-- Bon KMO (0,750)
-- Fiabilité interne excellente (α = 0,929)
-- Structure factorielle unidimensionnelle confirmée
-- Saturations factorielles très élevées (0,846 à 0,946)
-- Variance expliquée excellente (82,58%)
+**Propriétés psychométriques** : - Scores moyens très bas (entre 1,27 et 1,33 sur 7) - Bon KMO (0,750) - Fiabilité interne excellente (α = 0,929) - Structure factorielle unidimensionnelle confirmée - Saturations factorielles très élevées (0,846 à 0,946) - Variance expliquée excellente (82,58%)
 
 Les scores très bas indiquent une faible familiarité préalable avec l'entreprise, ce qui est cohérent avec l'utilisation d'une entreprise fictive ou peu connue dans l'expérimentation. Les excellentes propriétés psychométriques confirment néanmoins la validité de cette mesure.
 
@@ -836,17 +793,9 @@ Les scores très bas indiquent une faible familiarité préalable avec l'entrepr
 
 Cette échelle mesure la crédibilité perçue de la source d'évaluation (interne ou externe).
 
-**Propriétés psychométriques (sur données complètes)** :
-- Scores moyens homogènes (entre 3,72 et 3,99)
-- Bon KMO (0,781)
-- Fiabilité interne satisfaisante (α = 0,829)
-- Structure factorielle unidimensionnelle confirmée
-- Saturations factorielles variables mais acceptables (0,606 à 0,887)
-- Variance expliquée satisfaisante (58,22%)
+**Propriétés psychométriques (sur données complètes)** : - Scores moyens homogènes (entre 3,72 et 3,99) - Bon KMO (0,781) - Fiabilité interne satisfaisante (α = 0,829) - Structure factorielle unidimensionnelle confirmée - Saturations factorielles variables mais acceptables (0,606 à 0,887) - Variance expliquée satisfaisante (58,22%)
 
-**Propriétés sur données imputées** :
-- Méthode PMM : α = 0,821, KMO = 0,758, variance expliquée = 56,98%
-- Méthode RF : α = 0,801, KMO = 0,771, variance expliquée = 53,46%
+**Propriétés sur données imputées** : - Méthode PMM : α = 0,821, KMO = 0,758, variance expliquée = 56,98% - Méthode RF : α = 0,801, KMO = 0,771, variance expliquée = 53,46%
 
 La robustesse des indicateurs psychométriques entre les données originales et les données imputées par deux méthodes distinctes (PMM et RF) confirme la stabilité et la fiabilité de cette échelle.
 
@@ -1043,25 +992,27 @@ L'analyse de la normalité des variables clés de notre modèle révèle plusieu
 
 ### Normalité univariée
 
-1. **Test de Shapiro-Wilk** : Ce test formel de normalité est très sensible aux écarts, surtout avec des échantillons de taille moyenne à grande. Nos résultats montrent que toutes les variables principales (Image, Cong, CredE, CredGD, CredME) s'écartent significativement d'une distribution normale selon ce test (p < 0.05).
+1.  **Test de Shapiro-Wilk** : Ce test formel de normalité est très sensible aux écarts, surtout avec des échantillons de taille moyenne à grande. Nos résultats montrent que toutes les variables principales (Image, Cong, CredE, CredGD, CredME) s'écartent significativement d'une distribution normale selon ce test (p \< 0.05).
 
-2. **Asymétrie (Skewness)** : L'asymétrie mesure le degré de déséquilibre de la distribution. Nos variables présentent des valeurs d'asymétrie modérées :
-   - Image : asymétrie négative (-0.350), indiquant une tendance vers des valeurs plus élevées
-   - Cong : quasi-symétrique (-0.114)
-   - CredE : asymétrie négative modérée (-0.723)
-   - CredGD : légère asymétrie négative (-0.205)
-   - CredME : asymétrie négative modérée (-0.539)
-   
-   Ces valeurs restent toutes dans la plage acceptable (|skewness| < 1), suggérant des déviations modérées de la normalité.
+2.  **Asymétrie (Skewness)** : L'asymétrie mesure le degré de déséquilibre de la distribution. Nos variables présentent des valeurs d'asymétrie modérées :
 
-3. **Aplatissement (Kurtosis)** : L'aplatissement mesure la concentration des valeurs autour de la moyenne. Nos variables montrent :
-   - Image : distribution légèrement plus aplatie (-0.483) qu'une normale
-   - Cong : distribution légèrement plus aplatie (-0.351)
-   - CredE : distribution légèrement plus pointue (0.473)
-   - CredGD : distribution légèrement plus pointue (0.490)
-   - CredME : distribution plus pointue (1.139), mais toujours dans la plage acceptable
-   
-   Ces valeurs restent toutes dans la plage acceptable (|kurtosis| < 2).
+    -   Image : asymétrie négative (-0.350), indiquant une tendance vers des valeurs plus élevées
+    -   Cong : quasi-symétrique (-0.114)
+    -   CredE : asymétrie négative modérée (-0.723)
+    -   CredGD : légère asymétrie négative (-0.205)
+    -   CredME : asymétrie négative modérée (-0.539)
+
+    Ces valeurs restent toutes dans la plage acceptable (\|skewness\| \< 1), suggérant des déviations modérées de la normalité.
+
+3.  **Aplatissement (Kurtosis)** : L'aplatissement mesure la concentration des valeurs autour de la moyenne. Nos variables montrent :
+
+    -   Image : distribution légèrement plus aplatie (-0.483) qu'une normale
+    -   Cong : distribution légèrement plus aplatie (-0.351)
+    -   CredE : distribution légèrement plus pointue (0.473)
+    -   CredGD : distribution légèrement plus pointue (0.490)
+    -   CredME : distribution plus pointue (1.139), mais toujours dans la plage acceptable
+
+    Ces valeurs restent toutes dans la plage acceptable (\|kurtosis\| \< 2).
 
 ### Normalité multivariée
 
@@ -1081,10 +1032,7 @@ Cette analyse de normalité justifie notre choix méthodologique d'utiliser l'es
 
 Dans cette section, nous utilisons la modélisation par équations structurelles pour analyser les relations directes et indirectes entre nos variables, conformément au cadre conceptuel présenté dans le diagramme initial. Cette approche nous permet d'évaluer simultanément plusieurs chemins de médiation et de quantifier leurs effets respectifs.
 
-Notre stratégie analytique comprend trois approches comparatives du traitement des données manquantes :
-1. Analyse sur cas complets (noDM) : utilisation uniquement des observations sans données manquantes
-2. Imputation multiple par Predictive Mean Matching (PMM) : 10 jeux de données imputés
-3. Imputation multiple par Random Forest (RF) : également 10 jeux de données imputés
+Notre stratégie analytique comprend trois approches comparatives du traitement des données manquantes : 1. Analyse sur cas complets (noDM) : utilisation uniquement des observations sans données manquantes 2. Imputation multiple par Predictive Mean Matching (PMM) : 10 jeux de données imputés 3. Imputation multiple par Random Forest (RF) : également 10 jeux de données imputés
 
 Pour chaque approche, nous utilisons l'estimateur MLR (Maximum Likelihood avec erreurs standard robustes) qui offre une meilleure résistance aux déviations de normalité révélées par les tests de normalité.
 
@@ -1572,32 +1520,27 @@ cat("*** p<0.001, ** p<0.01, * p<0.05, . p<0.1\n")
 L'analyse utilisant l'imputation par Random Forest (RF) présente des caractéristiques intermédiaires entre l'analyse sur cas complets et l'imputation PMM, tout en maintenant une forte cohérence des effets.
 
 ### Ajustement du modèle
-Le modèle RF présente un ajustement satisfaisant :
-- Le CFI moyen (0.907) dépasse le seuil recommandé de 0.90
-- Le TLI moyen (0.845) s'améliore par rapport au modèle noDM mais reste inférieur au seuil de 0.90
-- Le RMSEA moyen (0.103) reste élevé, proche de celui du modèle noDM
-- Le SRMR moyen (0.069) est bien dans la zone d'acceptabilité
+
+Le modèle RF présente un ajustement satisfaisant : - Le CFI moyen (0.907) dépasse le seuil recommandé de 0.90 - Le TLI moyen (0.845) s'améliore par rapport au modèle noDM mais reste inférieur au seuil de 0.90 - Le RMSEA moyen (0.103) reste élevé, proche de celui du modèle noDM - Le SRMR moyen (0.069) est bien dans la zone d'acceptabilité
 
 L'ajustement est meilleur que celui des données complètes mais légèrement moins bon que celui de l'imputation PMM.
 
 ### Comparaison des coefficients
-La cohérence entre les trois approches est robuste :
-- Le coefficient CredME → Image (0.481) est quasiment identique à celui obtenu avec PMM (0.482)
-- L'effet Note → Image (0.336) est également identique entre RF et PMM
-- La relation CredE → CredME est légèrement plus forte avec RF (0.514 vs 0.481), tandis que CredGD → CredME est légèrement plus faible (0.272 vs 0.298)
-- Les effets indirects conservent leur importance relative à travers les trois méthodes
+
+La cohérence entre les trois approches est robuste : - Le coefficient CredME → Image (0.481) est quasiment identique à celui obtenu avec PMM (0.482) - L'effet Note → Image (0.336) est également identique entre RF et PMM - La relation CredE → CredME est légèrement plus forte avec RF (0.514 vs 0.481), tandis que CredGD → CredME est légèrement plus faible (0.272 vs 0.298) - Les effets indirects conservent leur importance relative à travers les trois méthodes
 
 ## Synthèse comparative et analyse de sensibilité
 
 La comparaison des trois méthodes (cas complets, PMM, RF) constitue une analyse de sensibilité robuste qui renforce considérablement la fiabilité de nos résultats. Les points essentiels à retenir sont :
 
-1. **Stabilité des effets principaux** : Les relations clés (Note → Image, CredME → Image, Source → CredE) sont constantes à travers les trois approches, avec des variations minimales dans les coefficients standardisés.
+1.  **Stabilité des effets principaux** : Les relations clés (Note → Image, CredME → Image, Source → CredE) sont constantes à travers les trois approches, avec des variations minimales dans les coefficients standardisés.
 
-2. **Ajustement amélioré avec imputation** : Les deux méthodes d'imputation, particulièrement PMM, améliorent l'ajustement du modèle, suggérant que le traitement des données manquantes renforce la validité de nos conclusions.
+2.  **Ajustement amélioré avec imputation** : Les deux méthodes d'imputation, particulièrement PMM, améliorent l'ajustement du modèle, suggérant que le traitement des données manquantes renforce la validité de nos conclusions.
 
-3. **Convergence des médiations** : Les chemins de médiation significatifs restent cohérents à travers les trois analyses, confirmant le rôle crucial de :
-   - L'effet indirect de la source sur l'image via la crédibilité (Source → CredE → CredME → Image)
-   - L'effet indirect de la note via la congruence et les mécanismes de crédibilité
+3.  **Convergence des médiations** : Les chemins de médiation significatifs restent cohérents à travers les trois analyses, confirmant le rôle crucial de :
+
+    -   L'effet indirect de la source sur l'image via la crédibilité (Source → CredE → CredME → Image)
+    -   L'effet indirect de la note via la congruence et les mécanismes de crédibilité
 
 Cette triple validation confirme la robustesse de notre modèle conceptuel, démontrant que les relations identifiées ne sont pas sensibles à la méthode de traitement des données manquantes. La concordance entre les trois approches suggère que nos conclusions reflètent des effets réels plutôt que des artefacts méthodologiques.
 
@@ -1611,87 +1554,46 @@ Sur la base des analyses SEM réalisées, nous pouvons valider ou infirmer nos h
 
 ### Relations directes
 
-**H1**: La note Glassdoor de l'employeur (Note) influence positivement l'image employeur (Image).
-- ✓ VALIDÉE
-- Effet direct significatif (β = 0.336, p < 0.001) dans les deux méthodes d'imputation
-- Relation forte et stable
+**H1**: La note Glassdoor de l'employeur (Note) influence positivement l'image employeur (Image). - ✓ VALIDÉE - Effet direct significatif (β = 0.336, p \< 0.001) dans les deux méthodes d'imputation - Relation forte et stable
 
-**H2**: La note Glassdoor de l'employeur (Note) influence positivement la congruence des signaux (Cong).
-- ✓ VALIDÉE
-- Effet direct fort et significatif (β = 0.617, p < 0.001) dans les deux méthodes
-- Relation très forte et stable
+**H2**: La note Glassdoor de l'employeur (Note) influence positivement la congruence des signaux (Cong). - ✓ VALIDÉE - Effet direct fort et significatif (β = 0.617, p \< 0.001) dans les deux méthodes - Relation très forte et stable
 
-**H3**: La source de l'enquête (Source) influence positivement la congruence des signaux (Cong).
-- ✗ NON VALIDÉE
-- Effet non significatif (β = 0.025, p = 0.524) dans les deux méthodes
-- Relation faible et non significative
+**H3**: La source de l'enquête (Source) influence positivement la congruence des signaux (Cong). - ✗ NON VALIDÉE - Effet non significatif (β = 0.025, p = 0.524) dans les deux méthodes - Relation faible et non significative
 
-**H4**: La note Glassdoor de l'employeur (Note) influence la crédibilité perçue de la note Glassdoor de l'employeur (CredGD).
-- ✗ NON VALIDÉE
-- Effet direct non significatif (β = 0.098, p = 0.133) dans les deux méthodes
-- L'influence passe principalement par la congruence
+**H4**: La note Glassdoor de l'employeur (Note) influence la crédibilité perçue de la note Glassdoor de l'employeur (CredGD). - ✗ NON VALIDÉE - Effet direct non significatif (β = 0.098, p = 0.133) dans les deux méthodes - L'influence passe principalement par la congruence
 
-**H5**: La source de l'enquête (Source) influence la crédibilité perçue de l'enquête (CredE).
-- ✓ VALIDÉE
-- Effet direct significatif (β ≈ 0.35, p < 0.001) dans les deux méthodes
-- Relation stable et forte
+**H5**: La source de l'enquête (Source) influence la crédibilité perçue de l'enquête (CredE). - ✓ VALIDÉE - Effet direct significatif (β ≈ 0.35, p \< 0.001) dans les deux méthodes - Relation stable et forte
 
-**H6**: La congruence des signaux (Cong) influence positivement la crédibilité des signaux.
-- ✓ VALIDÉE
-- H6a: Effet significatif sur CredE (β ≈ 0.25, p < 0.001) dans les deux méthodes
-- H6b: Effet significatif sur CredGD (β = 0.228, p < 0.001) dans les deux méthodes
+**H6**: La congruence des signaux (Cong) influence positivement la crédibilité des signaux. - ✓ VALIDÉE - H6a: Effet significatif sur CredE (β ≈ 0.25, p \< 0.001) dans les deux méthodes - H6b: Effet significatif sur CredGD (β = 0.228, p \< 0.001) dans les deux méthodes
 
-**H7**: La crédibilité de la marque employeur (CredME) influence positivement l'image employeur (Image).
-- ✓ VALIDÉE
-- Effet direct fort (β ≈ 0.48, p < 0.001) dans les deux méthodes
-- Impact le plus important sur l'image dans le modèle
+**H7**: La crédibilité de la marque employeur (CredME) influence positivement l'image employeur (Image). - ✓ VALIDÉE - Effet direct fort (β ≈ 0.48, p \< 0.001) dans les deux méthodes - Impact le plus important sur l'image dans le modèle
 
-**H8**: La crédibilité des signaux influence la crédibilité de la marque employeur (CredME).
-- ✓ VALIDÉE
-- H8a: CredGD → CredME significatif (β ≈ 0.27-0.30, p < 0.001) dans les deux méthodes
-- H8b: CredE → CredME significatif (β ≈ 0.49-0.51, p < 0.001) dans les deux méthodes
+**H8**: La crédibilité des signaux influence la crédibilité de la marque employeur (CredME). - ✓ VALIDÉE - H8a: CredGD → CredME significatif (β ≈ 0.27-0.30, p \< 0.001) dans les deux méthodes - H8b: CredE → CredME significatif (β ≈ 0.49-0.51, p \< 0.001) dans les deux méthodes
 
 ### Relations de médiation
 
-**H9**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur.
-- ✗ NON VALIDÉE
-- H9a: Chaîne Source → Cong → CredGD → CredME → Image non significative (ind2 ≈ 0.001, p > 0.54)
-- H9b: Chaîne Source → Cong → CredE → CredME → Image non significative (ind1 ≈ 0.001-0.002, p > 0.53)
-- L'absence d'effet significatif de Source sur Cong empêche ces chaînes de médiation d'être significatives
+**H9**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur. - ✗ NON VALIDÉE - H9a: Chaîne Source → Cong → CredGD → CredME → Image non significative (ind2 ≈ 0.001, p \> 0.54) - H9b: Chaîne Source → Cong → CredE → CredME → Image non significative (ind1 ≈ 0.001-0.002, p \> 0.53) - L'absence d'effet significatif de Source sur Cong empêche ces chaînes de médiation d'être significatives
 
-**H10**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la crédibilité de l'enquête et la crédibilité de la marque employeur.
-- ✓ VALIDÉE
-- Effet indirect significatif Source → CredE → CredME → Image (ind3 ≈ 0.085, p < 0.001) dans les deux méthodes
-- Représente le principal chemin par lequel la source influence l'image
+**H10**: Les effets de la source de l'enquête sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la crédibilité de l'enquête et la crédibilité de la marque employeur. - ✓ VALIDÉE - Effet indirect significatif Source → CredE → CredME → Image (ind3 ≈ 0.085, p \< 0.001) dans les deux méthodes - Représente le principal chemin par lequel la source influence l'image
 
-**H11**: Les effets de la note Glassdoor sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la crédibilité de la note Glassdoor et la crédibilité de la marque employeur.
-- ✗ NON VALIDÉE
-- Effet indirect Note → CredGD → CredME → Image non significatif (ind6 ≈ 0.013-0.014, p ≈ 0.14)
-- L'absence d'effet significatif de Note sur CredGD empêche cette chaîne de médiation d'être significative
+**H11**: Les effets de la note Glassdoor sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la crédibilité de la note Glassdoor et la crédibilité de la marque employeur. - ✗ NON VALIDÉE - Effet indirect Note → CredGD → CredME → Image non significatif (ind6 ≈ 0.013-0.014, p ≈ 0.14) - L'absence d'effet significatif de Note sur CredGD empêche cette chaîne de médiation d'être significative
 
-**H12**: Les effets de la note sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur.
-- ✓ VALIDÉE
-- H12a: Chaîne Note → Cong → CredGD → CredME → Image significative (ind4 ≈ 0.019, p < 0.01)
-- H12b: Chaîne Note → Cong → CredE → CredME → Image significative (ind5 ≈ 0.037, p < 0.001)
-- Effet indirect total significatif (tot_ind = 0.157, p < 0.001)
+**H12**: Les effets de la note sur l'image employeur sont médiatisés par une chaîne de médiation impliquant la congruence des signaux, la crédibilité des signaux et la crédibilité de la marque employeur. - ✓ VALIDÉE - H12a: Chaîne Note → Cong → CredGD → CredME → Image significative (ind4 ≈ 0.019, p \< 0.01) - H12b: Chaîne Note → Cong → CredE → CredME → Image significative (ind5 ≈ 0.037, p \< 0.001) - Effet indirect total significatif (tot_ind = 0.157, p \< 0.001)
 
 ### Conclusion
 
 Les analyses SEM basées sur les méthodes d'imputation PMM et RF révèlent un support empirique solide pour la majorité de nos hypothèses, démontrant la complexité des mécanismes par lesquels la note d'employeur et sa source influencent l'image de l'entreprise. Nos résultats mettent en évidence trois points majeurs :
 
-1. **Le rôle central de la crédibilité dans la formation de l'image employeur** :
-   - La crédibilité de la marque employeur comme déterminant principal de l'image
-   - L'influence significative des différentes formes de crédibilité (CredE, CredGD, CredME)
-
-2. **L'importance des mécanismes de médiation** :
-   - La congruence des signaux comme médiateur clé pour les effets de la note
-   - La crédibilité de l'enquête comme médiateur principal pour les effets de la source
-   - Les chaînes de médiation multiples impliquant la crédibilité
-
-3. **La différenciation des effets selon la source et la note** :
-   - Impact direct et indirect de la note sur l'image
-   - Absence d'effet de la source sur la congruence, contrairement à l'hypothèse initiale
-   - Importance de la congruence dans la transmission des effets de la note, mais pas de la source
+1.  **Le rôle central de la crédibilité dans la formation de l'image employeur** :
+    -   La crédibilité de la marque employeur comme déterminant principal de l'image
+    -   L'influence significative des différentes formes de crédibilité (CredE, CredGD, CredME)
+2.  **L'importance des mécanismes de médiation** :
+    -   La congruence des signaux comme médiateur clé pour les effets de la note
+    -   La crédibilité de l'enquête comme médiateur principal pour les effets de la source
+    -   Les chaînes de médiation multiples impliquant la crédibilité
+3.  **La différenciation des effets selon la source et la note** :
+    -   Impact direct et indirect de la note sur l'image
+    -   Absence d'effet de la source sur la congruence, contrairement à l'hypothèse initiale
+    -   Importance de la congruence dans la transmission des effets de la note, mais pas de la source
 
 Ces résultats sont particulièrement robustes car ils sont cohérents entre les deux méthodes d'imputation (PMM et RF), ce qui renforce considérablement la fiabilité de nos conclusions.
-
