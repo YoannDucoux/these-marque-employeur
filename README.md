@@ -29,4 +29,4 @@ Cette étude vise à comprendre comment les candidats évaluent les informations
 
 ## Résultats
 
-Une version HTML des résultats est disponible [ici]([lien-vers-la-version-html](https://rpubs.com/YoannDucoux/1281535)).
+Une version HTML des résultats est disponible [ici](https://rpubs.com/YoannDucoux/1281535).
